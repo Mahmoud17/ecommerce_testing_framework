@@ -1,6 +1,5 @@
-package ProductPage;
+package PageObjects;
 
-import Base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,8 +36,8 @@ public class ProductsPage extends BasePage {
     }
     public void addToCart(WebElement product) {
         product.findElement(addToCartButton).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#toast-container")));
-        wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".ng-animating"))));
+        waitForElementToAppear(By.cssSelector("#toast-container"));
+        waitForElementToDisappear(driver.findElement(By.cssSelector(".ng-animating")));
     }
 
 }

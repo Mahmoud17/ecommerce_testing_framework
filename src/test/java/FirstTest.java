@@ -1,7 +1,7 @@
-import CartPage.CartPage;
-import CheckoutPage.CheckoutPage;
-import LoginPage.LoginPage;
-import ProductPage.ProductsPage;
+import PageObjects.CartPage;
+import PageObjects.CheckoutPage;
+import PageObjects.LoginPage;
+import PageObjects.ProductsPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,9 +27,6 @@ public class FirstTest {
 
         ProductsPage productsPage = new ProductsPage(driver);
         List<WebElement> products = productsPage.getProducts();
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-
         WebElement product = productsPage.getProductByName(products, productName);
 
         productsPage.addToCart(product);
