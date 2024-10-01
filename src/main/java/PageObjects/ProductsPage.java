@@ -3,18 +3,11 @@ package PageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 import java.util.List;
 
 public class ProductsPage extends BasePage {
-    WebDriver driver;
-    WebDriverWait wait;
     public  ProductsPage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
     List<WebElement> products;

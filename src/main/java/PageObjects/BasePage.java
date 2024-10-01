@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class BasePage {
-    WebDriver driver;
+    protected WebDriver driver;
     protected WebDriverWait wait;
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -18,12 +18,22 @@ public class BasePage {
     public void waitForElementToAppear(By locator) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+    public void waitForElementToAppear(WebElement locator) {
+        wait.until(ExpectedConditions.visibilityOf(locator));
+    }
     public void waitForElementToDisappear(WebElement element) {
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
-    public void GoToCart() {
+    public CartPage GoToCart() {
+
         driver.findElement(By.cssSelector("[routerlink*='cart']")).click();
+        return new CartPage(driver);
     }
 
+    public HistoryPage goToOrderHistory() {
+
+        driver.findElement(By.cssSelector("[routerlink*='myorders']")).click();
+        return new HistoryPage(driver);
+    }
 }
