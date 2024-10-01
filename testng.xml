@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+    <suite name="All Test Suite">
+        <test thread-count="5" verbose="2" preserve-order="true" name="C:/Users/Ozymandias/Desktop/rest_test/ecommerce_testing_framework">
+            <classes>
+                <class name="Tests.LoginErrorValidationTest">
+                    <methods><include name="Login"/></methods>
+                </class>
+                <class name="Tests.MakeOrderValidTest">
+                    <methods><include name="MakeAnOrder"/></methods>
+                </class>
+            </classes>
+        </test>
+</suite>
