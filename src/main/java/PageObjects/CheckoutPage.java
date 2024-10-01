@@ -8,11 +8,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 public class CheckoutPage extends BasePage {
-    WebDriver driver;
 
     public CheckoutPage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
     }
 
     public void EnterLocation(String location) {
@@ -28,7 +26,9 @@ public class CheckoutPage extends BasePage {
         }
     }
 
-    public void CompleteOrder() {
+    public FinalPage CompleteOrder() {
+
         driver.findElement(By.cssSelector(".action__submit")).click();
+        return new FinalPage(driver);
     }
 }
